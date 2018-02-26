@@ -68,7 +68,7 @@ var w = window.innerWidth
 var h = window.innerHeight
 || document.documentElement.clientHeight
 || document.body.clientHeight;
-var p = screen.height - h;
+var p = screen.width - h;
 var n = sizew - p;
 if (w != sizew) {
     VK.callMethod("resizeWindow", h, n);
