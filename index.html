@@ -70,7 +70,7 @@ var h = window.innerHeight
 || document.body.clientHeight;
 if (w != sizew) {
     VK.callMethod("resizeWindow", h, sizew);
-    document.getElementById("t2").innerHTML = "New width: " + h + ", height: " + sizew;
+    document.getElementById("t2").innerHTML = "New width: " + w + ", height: " + sizew;
   } else {
     VK.callMethod("resizeWindow", sizew, sizeh);
     document.getElementById("t2").innerHTML = "Old width: " + sizew + ", height: " + sizeh;    
