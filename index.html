@@ -38,7 +38,7 @@ div {
 <span id='s1'></span><br><span id='a1'></span><br><span id='w1'></span><br><button type='button' onclick='newSize()' id='btn1'>Resize</button>
 </div>
 <div id='d2'>
-<span id='s2'>onResize</span><br><span id='a2'>onResize</span><br><span id='w2'>onResize</span>
+<span id='s2'>onResize</span><br><span id='a2'>onResize</span><br><span id='w2'>onResize</span><br><span id='t2'>onResize</span>
 </div>
 <script>
 sizeViev(1);
@@ -67,8 +67,10 @@ var w = window.innerWidth
 || document.body.clientWidth;
 if (w != sizew) {
     VK.callMethod("resizeWindow", sizeh, sizew);
+    document.getElementById("t2").innerHTML = "New width: " + sizeh + ", height: " + sizew;
   } else {
     VK.callMethod("resizeWindow", sizew, sizeh);
+    document.getElementById("t2").innerHTML = "Old width: " + sizew + ", height: " + sizeh;    
   }
 }
 function sizeViev (i) {
