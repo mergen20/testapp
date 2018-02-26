@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<title>Test App</title>
+<style>
+* {box-sizing: border-box}
+html {
+  background-color: #008000;
+  height: 100%;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    background-color: #000080;
+    height: 100%;
+}
+button {
+  height: 3em;
+  width: 50%;
+}
+div {
+  width: 100%;
+  min-height: 50%;
+}
+#d1 {
+  background-color: #F0F8FF;
+}
+#d2 {
+  background-color: #FAEBD7;
+}
+</style>
+<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
+</head>
+<body onresize="sizeViev(2)">
+<div id='d1'>
+<span id='s1'></span><br><span id='a1'></span><br><span id='w1'></span><br><button type='button' onclick='newSize()' id='btn1'>Resize</button>
+</div>
+<div id='d2'>
+<span id='s2'>onResize</span><br><span id='a2'>onResize</span><br><span id='w2'>onResize</span>
+</div>
+<script>
+sizeViev(1);
+var sizew = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var sizeh = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+VK.init(function() {
+     var b = document.getElementById('btn1');
+     b.disabled = false;
+     b.style.backgroundColor = "lightblue";
+  }, function() {
+     var b = document.getElementById('btn1');
+      b.disabled = true;
+      b.style.backgroundColor = "red";
+}, '5.76');
+
+
+function newSize () {
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+if (w != sizew) {
+    VK.callMethod("resizeWindow", sizeh, sizew);
+  } else {
+    VK.callMethod("resizeWindow", sizew, sizeh);
+  }
+}
+function sizeViev (i) {
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+var x = document.getElementById("w" + i);
+x.innerHTML = "Client width: " + w + ", height: " + h;
+document.getElementById("s" + i).innerHTML = "Full width: " + screen.width + ", height: " + screen.height;
+document.getElementById("a" + i).innerHTML = "Available width: " + screen.availWidth + ", height: " + screen.availHeight;
+
+}
+</script>
+</body>
+</html>
