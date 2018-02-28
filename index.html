@@ -77,6 +77,7 @@ if (w != sizew) {
     VK.callMethod("resizeWindow", sizew, sizeh);
     document.getElementById("t2").innerHTML = "Old width: " + sizew + ", height: " + sizeh;    
   }
+window.dispatchEvent(new Event('resize'));
 }
 function sizeViev (i) {
 var w = window.innerWidth
